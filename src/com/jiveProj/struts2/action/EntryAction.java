@@ -1,5 +1,6 @@
 package com.jiveProj.struts2.action;
 
+import com.jiveProj.struts2.service.DevEnvService;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class EntryAction extends ActionSupport{
@@ -7,15 +8,22 @@ public class EntryAction extends ActionSupport{
 	private String os;
 	private String version;
 	private String notes;
-	private String status;
 	
-	public String execute() {
-		EntryService entryService = new EntryService();
-		setStatus(entryService.printRecords(os, version, notes));
-
-		return getStatus();
+	public String execute() throws Exception {
+		String result = "";
+		DevEnvService devEnvService = new DevEnvService();
+		
+		result = devEnvService.save(os, version, notes);
+		
+		// Did the entry get properly saved to the Database?
+		if(result.equals("EntrySuccess")) {
+			return SUCCESS;
+		}else {
+			return ERROR;
+		}
 	}
 
+	// Default getters/setters
 	public String getOs() {
 		return os;
 	}
@@ -38,13 +46,5 @@ public class EntryAction extends ActionSupport{
 
 	public void setNotes(String notes) {
 		this.notes = notes;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 }
