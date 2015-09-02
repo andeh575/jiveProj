@@ -8,6 +8,7 @@
 
 		<action name="submitEntry" class="com.jiveProj.struts2.action.EntryAction" method="execute">
 			<result name="success">/result.jsp</result>
+			<result name="error">/index.jsp</result>
 			<result name="input">/index.jsp</result> <!-- Form that submitEntry received data from -->
 		</action>
 
