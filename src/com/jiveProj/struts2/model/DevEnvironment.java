@@ -7,6 +7,12 @@ public class DevEnvironment {
 	private String version;
 	private String notes;
 	
+	public DevEnvironment(String os, String version, String notes) {
+		this.os = os;
+		this.version = version;
+		this.notes = notes;
+	}
+	
 	// Default getters/setters for model class OpSystem
 	public String getOs() {
 		return os;

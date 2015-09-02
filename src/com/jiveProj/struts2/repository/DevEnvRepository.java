@@ -8,7 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.jiveProj.struts2.model.DevEnvironment;
 import com.jiveProj.struts2.utility.DatabaseUtility;
 
 public class DevEnvRepository {
@@ -58,5 +61,27 @@ public class DevEnvRepository {
 		}
 		
 		return false;
+	}
+	
+	// Function to return a constructed List<String> of OS's
+	public List<DevEnvironment> devEnvList() {
+		List<DevEnvironment> devEnvironments = new ArrayList<DevEnvironment>();
+		
+		if(dbConnection != null) {
+			try {
+				PreparedStatement ps = dbConnection.prepareStatement("SELECT * FROM dev_env");
+				ResultSet result = ps.executeQuery();
+				
+				if(result != null) {
+					while(result.next()) {
+						devEnvironments.add(new DevEnvironment(result.getString(1), result.getString(2), result.getString(3)));
+					}
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return devEnvironments;
 	}
 }

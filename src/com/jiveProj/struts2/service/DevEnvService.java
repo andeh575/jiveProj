@@ -2,6 +2,10 @@
  */
 package com.jiveProj.struts2.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jiveProj.struts2.model.DevEnvironment;
 import com.jiveProj.struts2.repository.DevEnvRepository;
 
 public class DevEnvService {
@@ -26,5 +30,15 @@ public class DevEnvService {
 			// Something went wrong with the Database
 			return "EntryFailure";
 		}
+	}
+
+	// Construct a list of OSs from the database
+	public List<DevEnvironment> devEnvList() {
+		List<DevEnvironment> devEnvironments = new ArrayList<DevEnvironment>();
+		if(devEnvRepository != null) {
+			devEnvironments = devEnvRepository.devEnvList();
+		}
+		
+		return devEnvironments;
 	}
 }

@@ -8,8 +8,13 @@
 
 		<action name="submitEntry" class="com.jiveProj.struts2.action.EntryAction" method="execute">
 			<result name="success">/result.jsp</result>
-			<result name="error">/index.jsp</result>
+			<result name="error">/index.jsp</result> <!-- Need to print an error message -->
+			<result name="duplicate">/result.jsp</result> <!-- Need to print a duplicate entry message -->
 			<result name="input">/index.jsp</result> <!-- Form that submitEntry received data from -->
+		</action>
+		
+		<action name="displayDevEnvList" class="com.jiveProj.struts2.action.TableAction" method="displayDevEnvList">
+			<result name="success">/result.jsp</result>
 		</action>
 
 	</package>

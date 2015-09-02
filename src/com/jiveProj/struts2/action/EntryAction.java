@@ -18,7 +18,10 @@ public class EntryAction extends ActionSupport{
 		// Did the entry get properly saved to the Database?
 		if(result.equals("EntrySuccess")) {
 			return SUCCESS;
-		}else {
+		} else if(result.equals("EntryFailure-EntryExists")) {
+			return "duplicate";
+		} else {
+		
 			return ERROR;
 		}
 	}
