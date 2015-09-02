@@ -40,7 +40,7 @@ public class DevEnvRepository {
 	public boolean findDuplicate(String os, String version) {
 		if(dbConnection != null) {
 			try{
-				PreparedStatement ps = dbConnection.prepareStatement("SELECT version FROM dev_env WHERE os ?");
+				PreparedStatement ps = dbConnection.prepareStatement("SELECT version FROM dev_env WHERE os=?");
 				ps.setString(1, os);
 				
 				ResultSet result = ps.executeQuery();
