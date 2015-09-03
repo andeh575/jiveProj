@@ -19,5 +19,8 @@
 		<s:submit/>
 	</s:form>
 	
+	<br/><br/>
+	<a href="<s:url action="displayDevEnvList"/>">View Existing Development Environments</a>
+	
 </body>
 </html>

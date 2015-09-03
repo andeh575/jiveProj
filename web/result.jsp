@@ -9,16 +9,13 @@
 <title>Development Environment Entry System</title>
 </head>
 <body>
-	<s:property value="status"/> <br/>
-	OS: <s:property value="os"/><br/>
-	Version: <s:property value="version"/><br/>
-	Notes: <s:property value="notes"/><br/>
-	
-	<display:table id="devEnvTable" name="devEnvironments" pagesize="5" cellpadding="5px;" cellspacing="5px;" requestURI="">
-		<display:column property="os" title="OS"/>
-		<display:column property="version" title="Version"/>
+	<s:a href="index.jsp">Back to Entry</s:a><br/>
+	<s:action name="displayDevEnvList"/>
+	<display:table id="devEnvTable" name="devEnvironments" pagesize="10" cellpadding="5px;" cellspacing="5px;" requestURI="" sort="list">
+		<display:column property="os" title="OS" sortable="true"/>
+		<display:column property="version" title="Version" sortable="true"/>
 		<display:column property="notes" title="Notes"/>
 	</display:table>
-	
+
 </body>
 </html>
