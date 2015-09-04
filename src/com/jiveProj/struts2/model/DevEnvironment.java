@@ -1,4 +1,7 @@
-/*  Purpose:	Model class for Development Environments entries 
+/*  Purpose:	Model class for Development Environments entries
+ * 				An entry in the database consists of Strings:
+ * 				
+ * 				OS (Required) | Version (Required) | Notes (Optional)  
  */
 package com.jiveProj.struts2.model;
 

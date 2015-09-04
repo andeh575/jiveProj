@@ -1,3 +1,6 @@
+/*	Purpose:	Action that allows the user to submit data entries into the database
+ * 
+ */
 package com.jiveProj.struts2.action;
 
 import com.jiveProj.struts2.service.DevEnvService;
@@ -10,9 +13,10 @@ public class EntryAction extends ActionSupport{
 	private String notes;
 	
 	public String execute() throws Exception {
-		String result = "";
-		DevEnvService devEnvService = new DevEnvService();
+		String result = "";									// Control string
+		DevEnvService devEnvService = new DevEnvService();	// Begin database connection service
 		
+		// Attempt to save the entry into the database
 		result = devEnvService.save(os, version, notes);
 		
 		// Did the entry get properly saved to the Database?
@@ -21,7 +25,6 @@ public class EntryAction extends ActionSupport{
 		} else if(result.equals("EntryFailure-EntryExists")) {
 			return "duplicate";
 		} else {
-		
 			return ERROR;
 		}
 	}
@@ -50,4 +53,5 @@ public class EntryAction extends ActionSupport{
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
+
 }

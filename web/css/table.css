@@ -1,0 +1,48 @@
+@CHARSET "ISO-8859-1";
+
+/* For Table css */
+table 
+{
+	width: 60%;
+    margin: 20px 0 20px 0px;
+}
+/* For odd and even row decoration */
+tr.odd 
+{
+	background-color: #f6FEFE
+}
+tr.tableRowEven,tr.even 
+{
+	background-color: #D4F2F2
+}
+/* Css for table elements */
+th,td 
+{
+	padding: 2px 4px 2px 4px;
+	text-align: left;
+	vertical-align: top;
+}
+thead tr 
+{
+	background-color: #439494;
+}
+/* For changing the background colour while sorting */
+th.sorted 
+{
+	background-color: #6EBABA;
+}
+th.sorted a,th.sortable a 
+{
+	background-position: right;
+	display: block;
+	width: 100%;
+}
+th a:hover 
+{
+	text-decoration: underline;
+	color: #f6FEFE;
+}
+th a,th a:visited 
+{
+	color: black;
+}

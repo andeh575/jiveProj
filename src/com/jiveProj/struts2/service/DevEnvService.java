@@ -11,10 +11,12 @@ import com.jiveProj.struts2.repository.DevEnvRepository;
 public class DevEnvService {
 	private DevEnvRepository devEnvRepository;
 	
+	// Constructor - create an new instance connecting to the database
 	public DevEnvService() {
 		devEnvRepository = new DevEnvRepository();
 	}
 	
+	// Function that saves records into the database via devEnvRepository
 	public String save(String os, String version, String notes) {
 		// Make sure the repository exists
 		if(devEnvRepository != null) {
@@ -35,7 +37,10 @@ public class DevEnvService {
 	// Construct a list of OSs from the database
 	public List<DevEnvironment> devEnvList() {
 		List<DevEnvironment> devEnvironments = new ArrayList<DevEnvironment>();
+		
+		// Check to ensure a connection to the database exists
 		if(devEnvRepository != null) {
+			// Get the list of entries from the database 
 			devEnvironments = devEnvRepository.devEnvList();
 		}
 		

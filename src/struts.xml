@@ -3,16 +3,18 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<constant name="struts.devMode" value="true"/>
-	<package name="default" extends="struts-default">
+	<constant name="struts.devMode" value="false"/>
 
+	<package name="default" extends="struts-default">	
+		<!-- Main action that accepts a new Development Environment entry and, if validation passes, forward it to displayDevEnvList -->
 		<action name="submitEntry" class="com.jiveProj.struts2.action.EntryAction" method="execute">
 			<result name="success" type="redirectAction"><param name="actionName">displayDevEnvList.action</param></result>
-			<result name="error">/index.jsp</result> <!-- Need to print an error message -->
-			<result name="duplicate">/index.jsp</result> <!-- Need to print a duplicate entry message -->
-			<result name="input">/index.jsp</result> <!-- Form that submitEntry received data from -->
+			<result name="error">/entry.jsp</result> <!-- An error occurred somewhere -->
+			<result name="duplicate">/entry.jsp</result> <!-- A new entry is not made since one already exists with required data -->
+			<result name="input">/entry.jsp</result> <!-- Default result received from validation error -->
 		</action>
 		
+		<!-- Action that prepares and generates the table that lists all Development Environments -->
 		<action name="displayDevEnvList" class="com.jiveProj.struts2.action.TableAction" method="displayDevEnvList">
 			<result name="success">/result.jsp</result>
 		</action>

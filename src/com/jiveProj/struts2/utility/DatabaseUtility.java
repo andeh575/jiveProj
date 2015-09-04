@@ -11,15 +11,19 @@ import java.util.Properties;
 public class DatabaseUtility {
 	private static Connection dbConnection = null;
 	
+	// Function that establishes connection to the database - properties found in db.properties
 	public static Connection getConnection() {
+		// Does a connection already exist?
 		if(dbConnection != null)
 			return dbConnection;
+		// There wasn't an existing connection so let's create one
 		else {
 			try {
+				// Prepare to load db.properties
 				InputStream inputStream = DatabaseUtility.class.getClassLoader().getResourceAsStream("db.properties");
 				Properties properties = new Properties();
 				
-				// If the db.properties file exists in src then create a new Connection with the settings
+				// Load db.properties, parse its contents, and create a new Connection
 				if(properties != null) {
 					properties.load(inputStream);
 					

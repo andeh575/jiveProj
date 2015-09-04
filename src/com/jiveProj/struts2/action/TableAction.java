@@ -1,3 +1,6 @@
+/*	Purpose:	Action that drives the generation of the development environment entries table
+ * 
+ */
 package com.jiveProj.struts2.action;
 
 import java.util.ArrayList;
@@ -14,7 +17,7 @@ public class TableAction extends ActionSupport {
 	public String displayDevEnvList() {
 		DevEnvService devEnvService = new DevEnvService();
 		
-		// Get the list of development environments from the database
+		// Set the list of development environments from the database
 		setDevEnvironments(devEnvService.devEnvList());
 
 		return SUCCESS;

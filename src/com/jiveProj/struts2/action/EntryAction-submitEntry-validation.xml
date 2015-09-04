@@ -4,6 +4,7 @@
         "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
         
 <validators>
+	<!-- Requires the user to select an OS from the drop-down menu -->
 	<field name="os">
 		<field-validator type="requiredstring">
 			<param name="trim">false</param>
@@ -11,10 +12,24 @@
 		</field-validator>
 	</field>
 
+	<!-- Requires the user to enter a version - trims whitespace/maximum size 10 char - doesn't check for validity of version! -->
 	<field name="version">
 		<field-validator type="requiredstring">
 			<param name="trim">true</param>
 			<message>You must enter a Version</message>
+		</field-validator>
+		
+		<field-validator type="stringlength">
+			<param name="maxLength">10</param>
+			<message>Version can be a maximum of ${maxLength} characters</message>
+		</field-validator>
+	</field>
+	
+	<!-- Ensure that notes does not exceed 255 chars -->
+	<field name="notes">
+		<field-validator type="stringlength">
+			<param name="maxLength">255</param>
+			<message>Notes can be a maximum of ${maxLength} characters</message>
 		</field-validator>
 	</field>
 	
