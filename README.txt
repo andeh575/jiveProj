@@ -33,11 +33,11 @@ Dependencies:
 	o mysql-connector-java-5.1.36-bin.jar
 
 Installation/Configuration:
-- Deploying the default jiveProj.WAR:
+- Deploying the default jiveProj.WAR onto Tomcat:
 	o Put jiveProj.WAR into the the webapps directory of Tomcat
 		- EX: H:\tomcat\webapps\jiveProj.WAR
 	o Run buildJiveProjDB.sql to build the database
-		- EX from MYSQL Command Line: SOURCE H:\buildJiveProjDB.sql
+		- EX from terminal: mysql -u username -p password < buildJiveProjDB.sql
 	o Start the Tomcat server
 		- EX (From Terminal): H:\tomcat\bin\startup
 	o Configure the database with db.properties
@@ -51,7 +51,8 @@ Installation/Configuration:
 		- connectionUrl:	Database url (Default: jdbc:mysql://localhost:3306/jiveProj)
 		- userName:		Database username (Default: root)
 		- password:		Database password (Default: root123)
-	o Run buildJiveProjDB.sql to build the database
+	o Run buildJiveProjDB.sql to build the database 
+	o Database for testing/prefilled entries is buildJiveProjDB.sql
 	o Export the project to a WAR file 
 		- EX (Using Eclipse): In the project explorer, right-click on jiveProj->Export->WAR File, deploy exported WAR to server
 
